@@ -23,6 +23,7 @@ class CreateImagesTable extends Migration
             $table->string('small')->nullable();
 
             $table->timestamps();
+            $table->index(['imageable_id','imageable_type']);
         });
     }
 
