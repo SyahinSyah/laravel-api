@@ -13,5 +13,10 @@ class Gallery extends Model
     {
         return $this->morphMany('App\Models\Image', 'imageable');
     }
+    
+    public function tags()
+    {
+        return $this->morphToMany(Tag::class, 'taggable');
+    }
 
 }
