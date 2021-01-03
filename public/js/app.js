@@ -3435,6 +3435,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['posts'],
@@ -46925,7 +46930,9 @@ var render = function() {
       ),
       _vm._v(" "),
       _vm._m(3)
-    ])
+    ]),
+    _vm._v(" "),
+    _vm._m(4)
   ])
 }
 var staticRenderFns = [
@@ -47156,6 +47163,45 @@ var staticRenderFns = [
         )
       ]
     )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("footer", { staticClass: "w-full border-t bg-white pb-12" }, [
+      _c(
+        "div",
+        { staticClass: "w-full container mx-auto flex flex-col items-center" },
+        [
+          _c(
+            "div",
+            {
+              staticClass:
+                "flex flex-col md:flex-row text-center md:text-left md:justify-between py-6"
+            },
+            [
+              _c("a", { staticClass: "uppercase px-3", attrs: { href: "#" } }, [
+                _vm._v("About Us")
+              ]),
+              _vm._v(" "),
+              _c("a", { staticClass: "uppercase px-3", attrs: { href: "#" } }, [
+                _vm._v("Privacy Policy")
+              ]),
+              _vm._v(" "),
+              _c("a", { staticClass: "uppercase px-3", attrs: { href: "#" } }, [
+                _vm._v("Terms & Conditions")
+              ]),
+              _vm._v(" "),
+              _c("a", { staticClass: "uppercase px-3", attrs: { href: "#" } }, [
+                _vm._v("Contact Us")
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "uppercase pb-6" }, [_vm._v("© myblog.com")])
+        ]
+      )
+    ])
   }
 ]
 render._withStripped = true
@@ -47891,12 +47937,25 @@ var render = function() {
             { staticClass: "bg-white flex flex-col justify-start p-6" },
             [
               _c(
-                "a",
-                {
-                  staticClass: "text-blue-700 text-sm font-bold uppercase pb-4",
-                  attrs: { href: "#" }
-                },
-                [_vm._v("Technology")]
+                "div",
+                { staticClass: "text-blue-700 text-sm font-bold uppercase " },
+                [
+                  _vm._l(post.categories, function(category, index) {
+                    return [
+                      index > 0 ? [_vm._v(" |")] : _vm._e(),
+                      _vm._v(" "),
+                      _c(
+                        "inertia-link",
+                        {
+                          key: category.slug,
+                          attrs: { href: "/blog/category/" + category.slug }
+                        },
+                        [_vm._v(_vm._s(category.name))]
+                      )
+                    ]
+                  })
+                ],
+                2
               ),
               _vm._v(" "),
               _c(
@@ -47908,28 +47967,37 @@ var render = function() {
                 [_vm._v(_vm._s(post.title))]
               ),
               _vm._v(" "),
-              _c("p", { staticClass: "text-sm pb-3", attrs: { href: "#" } }, [
-                _vm._v("\n                    By "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "font-semibold hover:text-gray-800",
-                    attrs: { href: "#" }
-                  },
-                  [_vm._v(_vm._s(post.user.name))]
-                ),
-                _vm._v(", " + _vm._s(post.published_at) + "\n                ")
-              ]),
-              _vm._v(" "),
-              _c("a", { staticClass: "pb-6", attrs: { href: "#" } }, [
-                _vm._v(_vm._s(post.body))
-              ]),
+              _c(
+                "p",
+                { staticClass: "text-sm pb-3" },
+                [
+                  _vm._v("\n                    By "),
+                  _c(
+                    "inertia-link",
+                    {
+                      staticClass: "font-semibold hover:text-gray-800",
+                      attrs: { href: "/blog/" + post.slug }
+                    },
+                    [_vm._v(_vm._s(post.user.name))]
+                  ),
+                  _vm._v(
+                    ", " + _vm._s(post.published_at) + "\n                "
+                  )
+                ],
+                1
+              ),
               _vm._v(" "),
               _c(
-                "a",
+                "inertia-link",
+                { staticClass: "pb-6", attrs: { href: "/blog/" + post.slug } },
+                [_vm._v(_vm._s(post.body))]
+              ),
+              _vm._v(" "),
+              _c(
+                "inertia-link",
                 {
                   staticClass: "uppercase text-gray-800 hover:text-black",
-                  attrs: { href: "#" }
+                  attrs: { href: "/blog/" + post.slug }
                 },
                 [
                   _vm._v("Continue Reading "),
