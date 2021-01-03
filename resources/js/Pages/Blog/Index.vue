@@ -14,7 +14,7 @@
                    </div>
                     <inertia-link :href="`/${post.slug}`" class="text-3xl font-bold hover:text-gray-700 pb-4">{{ post.title }}</inertia-link>
                     <p  class="text-sm pb-3">
-                        By <inertia-link :href="`/${post.slug}`" class="font-semibold hover:text-gray-800">{{ post.user.name }}</inertia-link>, Publish on {{ post.published_at }}
+                        By <inertia-link :href="`/user/${post.user.id}`" class="font-semibold hover:text-gray-800">{{ post.user.name }}</inertia-link>, Publish on {{ post.published_at }}
                     </p>
                     <inertia-link :href="`/${post.slug}`" class="pb-6">{{ post.body }}</inertia-link>
                     <inertia-link :href="`/${post.slug}`" class="uppercase text-gray-800 hover:text-black">Continue Reading <i class="fas fa-arrow-right"></i></inertia-link>

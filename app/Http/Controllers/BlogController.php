@@ -14,7 +14,7 @@ class BlogController extends Controller
         Inertia::setRootView('blog'); //nak cari view blog.blade instead of app.blade
     }
 
-    public function index()
+    public function index() //index vue
     {
         $posts = Post::activePost()
         ->with('user:id,name')
@@ -23,14 +23,31 @@ class BlogController extends Controller
         return Inertia::render('Blog/Index',['posts' => $posts]);
     }
 
-    public function show($slug)
+    public function show($slug) //show vue
     {
-       $post = Post::with('user:id,name')
+       $post = Post::activePost()
+                ->with('user:id,name')
                 ->with('categories:slug,name')
                 ->where('slug',$slug)
                 ->firstOrFail();
 
-        return $post;
+      //  return $post;
+
+        //best practice, lepas dah query return je dkt browser nak tgok data keluar tak.
+
+        // return  [
+        //         'post' => $post,
+        //         'nextPost' =>$post->next_post,
+        //         'prevPost' =>$post->prev_post,
+        // ];
+
+      //  ni nak return dkt vue , dkt prop     
+         
+        return Inertia::render('Blog/Show',[
+        'post' => $post,
+        'nextPost' =>$post->next_post,
+        'prevPost' =>$post->prev_post,
+        ]);
     }
 
 

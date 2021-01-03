@@ -21,7 +21,7 @@ use App\Http\Controllers\BlogController;
 
 
 Route::get('/',[BlogController::class, 'index'])->name('blog_posts'); //lepas nama url, nama class dengan nama function
-Route::get('/{slug}', [BlogController::class ,'show'])->name('blog_post');
+Route::get('/{slug}', [BlogController::class ,'show'])->name('blog_posts');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia\Inertia::render('Dashboard');

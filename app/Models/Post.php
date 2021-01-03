@@ -58,4 +58,23 @@ class Post extends Model
         ->where('published_at' , '<=' , Carbon::now());
     }
 
+    public function getNextPostAttribute()
+    {
+        $nextPost= self::activePost()
+        ->where('published_at','>',$this->published_at)
+        ->orderby('published_at', 'asc')
+        ->first();
+
+        return $nextPost;
+    }
+
+    public function getPrevPostAttribute()
+    {
+        $prevPost= self::activePost()
+        ->where('published_at','<',$this->published_at)
+        ->orderby('published_at', 'desc')
+        ->first();
+
+        return $prevPost;
+    }
 }
