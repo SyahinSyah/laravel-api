@@ -47948,7 +47948,7 @@ var render = function() {
                         "inertia-link",
                         {
                           key: category.slug,
-                          attrs: { href: "/blog/category/" + category.slug }
+                          attrs: { href: "/category/" + category.slug }
                         },
                         [_vm._v(_vm._s(category.name))]
                       )
@@ -47962,7 +47962,7 @@ var render = function() {
                 "inertia-link",
                 {
                   staticClass: "text-3xl font-bold hover:text-gray-700 pb-4",
-                  attrs: { href: "/blog/" + post.slug }
+                  attrs: { href: "/" + post.slug }
                 },
                 [_vm._v(_vm._s(post.title))]
               ),
@@ -47976,12 +47976,14 @@ var render = function() {
                     "inertia-link",
                     {
                       staticClass: "font-semibold hover:text-gray-800",
-                      attrs: { href: "/blog/" + post.slug }
+                      attrs: { href: "/" + post.slug }
                     },
                     [_vm._v(_vm._s(post.user.name))]
                   ),
                   _vm._v(
-                    ", " + _vm._s(post.published_at) + "\n                "
+                    ", Publish on " +
+                      _vm._s(post.published_at) +
+                      "\n                "
                   )
                 ],
                 1
@@ -47989,7 +47991,7 @@ var render = function() {
               _vm._v(" "),
               _c(
                 "inertia-link",
-                { staticClass: "pb-6", attrs: { href: "/blog/" + post.slug } },
+                { staticClass: "pb-6", attrs: { href: "/" + post.slug } },
                 [_vm._v(_vm._s(post.body))]
               ),
               _vm._v(" "),
@@ -47997,7 +47999,7 @@ var render = function() {
                 "inertia-link",
                 {
                   staticClass: "uppercase text-gray-800 hover:text-black",
-                  attrs: { href: "/blog/" + post.slug }
+                  attrs: { href: "/" + post.slug }
                 },
                 [
                   _vm._v("Continue Reading "),
